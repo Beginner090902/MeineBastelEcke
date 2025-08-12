@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvbscjgvy6ius"]
+
+[ext_resource type="Script" uid="uid://tih6m4s7mmn6" path="res://Sinus-Simulation/sinus_1.gd" id="1_slm7e"]
+
+[node name="Sinus1" type="Line2D"]
+position = Vector2(10, 200)
+width = 2.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_slm7e")

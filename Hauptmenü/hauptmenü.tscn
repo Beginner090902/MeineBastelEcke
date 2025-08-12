@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cai3brn5qfu2v"]
+
+[ext_resource type="Script" uid="uid://ogirkl0hk5t0" path="res://Hauptmenü/sinus_wellen_simulation_button.gd" id="1_rmmmx"]
+
+[node name="Hauptmenü" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 900.0
+offset_bottom = 500.0
+
+[node name="Menü" type="Label" parent="."]
+layout_mode = 0
+offset_right = 900.0
+offset_bottom = 25.0
+text = "Menü"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 900.0
+offset_bottom = 425.0
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Sinus-Wellen-Simulation-button" type="Button" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "Sinus Wellen Simulation"
+script = ExtResource("1_rmmmx")
+
+[connection signal="pressed" from="ScrollContainer/GridContainer/Sinus-Wellen-Simulation-button" to="ScrollContainer/GridContainer/Sinus-Wellen-Simulation-button" method="_on_pressed"]

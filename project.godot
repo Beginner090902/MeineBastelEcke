@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Sinus Wackeln/xplosion simulieren"
-run/main_scene="uid://c6w2llwaw2d3u"
+run/main_scene="uid://cai3brn5qfu2v"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Hauptmenü/icon.svg"
 
 [autoload]
 
-Globale="*res://Globale.gd"
+SinusWellen="*res://Sinus-Simulation/Sinus-Wellen-Simulaton.gd"
 
 [display]
 
