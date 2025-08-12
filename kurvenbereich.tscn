@@ -1,0 +1,194 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6w2llwaw2d3u"]
+
+[ext_resource type="Script" uid="uid://dgeb7keo48lkf" path="res://Globale.gd" id="1_7fwq1"]
+[ext_resource type="PackedScene" uid="uid://c0cp0i4u5fhk1" path="res://sinus_1.tscn" id="1_vxck1"]
+[ext_resource type="Script" uid="uid://dtnf284a7e6nx" path="res://sinus_2.gd" id="2_jpeur"]
+[ext_resource type="Script" uid="uid://dns8g73gy4w1b" path="res://sinus_1+2.gd" id="3_ciyr7"]
+[ext_resource type="Script" uid="uid://cpw6s7ow8xyef" path="res://welle_1_button.gd" id="5_6nd1k"]
+[ext_resource type="Script" uid="uid://c1vj7q666jw4k" path="res://welle_2_button.gd" id="6_kfilr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fwq1"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="Kurvenbereich" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 900.0
+offset_bottom = 500.0
+script = ExtResource("1_7fwq1")
+
+[node name="Sinus1bereich" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 474.0
+offset_bottom = 200.0
+
+[node name="Sinus1" type="Label" parent="Sinus1bereich"]
+layout_mode = 2
+text = "Welle 1"
+horizontal_alignment = 1
+
+[node name="Text_Eingabe" type="GridContainer" parent="Sinus1bereich"]
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 2
+
+[node name="Amplitude" type="Label" parent="Sinus1bereich/Text_Eingabe"]
+layout_mode = 2
+text = "Amplitude"
+
+[node name="Amp_Eingabe1" type="LineEdit" parent="Sinus1bereich/Text_Eingabe"]
+layout_mode = 2
+placeholder_text = "50.0"
+virtual_keyboard_type = 2
+
+[node name="Frequency" type="Label" parent="Sinus1bereich/Text_Eingabe"]
+layout_mode = 2
+text = "Frequency"
+
+[node name="Fre_Eingabe1" type="LineEdit" parent="Sinus1bereich/Text_Eingabe"]
+layout_mode = 2
+placeholder_text = "20.0"
+virtual_keyboard_type = 2
+
+[node name="X_verschiebung" type="Label" parent="Sinus1bereich/Text_Eingabe"]
+layout_mode = 2
+text = "X_Verschiebung"
+
+[node name="Xver_Eingabe1" type="LineEdit" parent="Sinus1bereich/Text_Eingabe"]
+layout_mode = 2
+placeholder_text = "0.0"
+virtual_keyboard_type = 2
+
+[node name="Y_verschiebung" type="Label" parent="Sinus1bereich/Text_Eingabe"]
+layout_mode = 2
+text = "Y_Verschiebung"
+
+[node name="Yver_Eingabe1" type="LineEdit" parent="Sinus1bereich/Text_Eingabe"]
+layout_mode = 2
+placeholder_text = "0.0"
+virtual_keyboard_type = 2
+
+[node name="Control" type="Control" parent="Sinus1bereich"]
+layout_mode = 2
+
+[node name="Sinus1" parent="Sinus1bereich/Control" instance=ExtResource("1_vxck1")]
+unique_name_in_owner = true
+position = Vector2(200, -85)
+scale = Vector2(0.8, 0.8)
+default_color = Color(1, 0, 0, 1)
+
+[node name="Sinus2bereich" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 210.0
+offset_right = 474.0
+offset_bottom = 380.0
+
+[node name="Sinus2" type="Label" parent="Sinus2bereich"]
+layout_mode = 2
+text = "Welle 2"
+horizontal_alignment = 1
+
+[node name="Text_Eingabe" type="GridContainer" parent="Sinus2bereich"]
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 2
+
+[node name="Amplitude" type="Label" parent="Sinus2bereich/Text_Eingabe"]
+layout_mode = 2
+text = "Amplitude"
+
+[node name="Amp_Eingabe" type="LineEdit" parent="Sinus2bereich/Text_Eingabe"]
+layout_mode = 2
+placeholder_text = "50.0"
+virtual_keyboard_type = 2
+
+[node name="Frequency" type="Label" parent="Sinus2bereich/Text_Eingabe"]
+layout_mode = 2
+text = "Frequency"
+
+[node name="Fre_Eingabe" type="LineEdit" parent="Sinus2bereich/Text_Eingabe"]
+layout_mode = 2
+placeholder_text = "1.5"
+virtual_keyboard_type = 2
+
+[node name="X_verschiebung" type="Label" parent="Sinus2bereich/Text_Eingabe"]
+layout_mode = 2
+text = "X_Verschiebung"
+
+[node name="Xver_Eingabe" type="LineEdit" parent="Sinus2bereich/Text_Eingabe"]
+layout_mode = 2
+placeholder_text = "0.0"
+virtual_keyboard_type = 2
+
+[node name="Y_verschiebung" type="Label" parent="Sinus2bereich/Text_Eingabe"]
+layout_mode = 2
+text = "Y_Verschiebung"
+
+[node name="Yver_Eingabe" type="LineEdit" parent="Sinus2bereich/Text_Eingabe"]
+layout_mode = 2
+placeholder_text = "0.0"
+virtual_keyboard_type = 2
+
+[node name="Control" type="Control" parent="Sinus2bereich"]
+layout_mode = 2
+
+[node name="Sinus2" parent="Sinus2bereich/Control" instance=ExtResource("1_vxck1")]
+unique_name_in_owner = true
+position = Vector2(200, -85)
+scale = Vector2(0.8, 0.8)
+default_color = Color(0, 1, 0, 1)
+script = ExtResource("2_jpeur")
+
+[node name="Sinus1+2bereich" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 30.0
+offset_right = 918.0
+offset_bottom = 390.0
+
+[node name="Control" type="Control" parent="Sinus1+2bereich"]
+layout_mode = 2
+
+[node name="Sinus1+2" parent="Sinus1+2bereich/Control" instance=ExtResource("1_vxck1")]
+position = Vector2(60, 170)
+scale = Vector2(0.8, 0.8)
+default_color = Color(0.45956, 0.459559, 6.73831e-07, 1)
+script = ExtResource("3_ciyr7")
+
+[node name="Label" type="Label" parent="Sinus1+2bereich"]
+layout_mode = 2
+text = "Welle Gemischt"
+horizontal_alignment = 1
+
+[node name="Tasten_zum_aneigen_der_wellen" type="GridContainer" parent="Sinus1+2bereich/Label"]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 140.0
+
+[node name="Welle1_Button" type="Button" parent="Sinus1+2bereich/Label/Tasten_zum_aneigen_der_wellen"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_pressed_color = Color(0.977937, 0.977937, 0.977937, 1)
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7fwq1")
+text = "Welle1"
+script = ExtResource("5_6nd1k")
+
+[node name="Welle2_Button" type="Button" parent="Sinus1+2bereich/Label/Tasten_zum_aneigen_der_wellen"]
+layout_mode = 2
+focus_mode = 0
+text = "Welle2"
+script = ExtResource("6_kfilr")
+
+[connection signal="text_changed" from="Sinus1bereich/Text_Eingabe/Amp_Eingabe1" to="Sinus1bereich/Control/Sinus1" method="_on_amp_eingabe_1_text_changed"]
+[connection signal="text_changed" from="Sinus1bereich/Text_Eingabe/Fre_Eingabe1" to="Sinus1bereich/Control/Sinus1" method="_on_fre_eingabe_1_text_changed"]
+[connection signal="text_changed" from="Sinus1bereich/Text_Eingabe/Xver_Eingabe1" to="Sinus1bereich/Control/Sinus1" method="_on_xver_eingabe_1_text_changed"]
+[connection signal="text_changed" from="Sinus1bereich/Text_Eingabe/Yver_Eingabe1" to="Sinus1bereich/Control/Sinus1" method="_on_yver_eingabe_1_text_changed"]
+[connection signal="text_changed" from="Sinus2bereich/Text_Eingabe/Amp_Eingabe" to="Sinus2bereich/Control/Sinus2" method="_on_amp_eingabe_text_changed"]
+[connection signal="text_changed" from="Sinus2bereich/Text_Eingabe/Fre_Eingabe" to="Sinus2bereich/Control/Sinus2" method="_on_fre_eingabe_text_changed"]
+[connection signal="text_changed" from="Sinus2bereich/Text_Eingabe/Xver_Eingabe" to="Sinus2bereich/Control/Sinus2" method="_on_xver_eingabe_text_changed"]
+[connection signal="text_changed" from="Sinus2bereich/Text_Eingabe/Yver_Eingabe" to="Sinus2bereich/Control/Sinus2" method="_on_yver_eingabe_text_changed"]
+[connection signal="pressed" from="Sinus1+2bereich/Label/Tasten_zum_aneigen_der_wellen/Welle1_Button" to="Sinus1+2bereich/Control/Sinus1+2" method="_on_welle_1_button_pressed"]
+[connection signal="pressed" from="Sinus1+2bereich/Label/Tasten_zum_aneigen_der_wellen/Welle2_Button" to="Sinus1+2bereich/Control/Sinus1+2" method="_on_welle_2_button_pressed"]
