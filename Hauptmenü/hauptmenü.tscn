@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cai3brn5qfu2v"]
+[gd_scene load_steps=3 format=3 uid="uid://cai3brn5qfu2v"]
 
 [ext_resource type="Script" uid="uid://ogirkl0hk5t0" path="res://Hauptmenü/sinus_wellen_simulation_button.gd" id="1_rmmmx"]
+[ext_resource type="Script" uid="uid://cuy0vpr6xb2ih" path="res://Hauptmenü/exit_game.gd" id="2_m1wvj"]
 
 [node name="Hauptmenü" type="Control"]
 layout_mode = 3
@@ -29,4 +30,14 @@ layout_mode = 2
 text = "Sinus Wellen Simulation"
 script = ExtResource("1_rmmmx")
 
+[node name="Exit-Game" type="Button" parent="."]
+layout_mode = 0
+offset_left = 855.0
+offset_top = 5.0
+offset_right = 892.0
+offset_bottom = 36.0
+text = "Exit"
+script = ExtResource("2_m1wvj")
+
 [connection signal="pressed" from="ScrollContainer/GridContainer/Sinus-Wellen-Simulation-button" to="ScrollContainer/GridContainer/Sinus-Wellen-Simulation-button" method="_on_pressed"]
+[connection signal="pressed" from="Exit-Game" to="Exit-Game" method="_on_pressed"]
