@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6w2llwaw2d3u"]
+[gd_scene load_steps=16 format=3 uid="uid://c6w2llwaw2d3u"]
 
 [ext_resource type="Script" uid="uid://dgeb7keo48lkf" path="res://Sinus-Simulation/Sinus-Wellen-Simulaton.gd" id="1_4dnlt"]
 [ext_resource type="Script" uid="uid://cwjrrvlspox5q" path="res://Sinus-Simulation/simulation_stoppen_button.gd" id="2_54x1t"]
 [ext_resource type="PackedScene" uid="uid://bvbscjgvy6ius" path="res://Sinus-Simulation/sinus_1.tscn" id="2_c04v5"]
-[ext_resource type="Texture2D" uid="uid://cju7vanscyqst" path="res://Sinus-Simulation/Scala-bild.png" id="3_l7bv2"]
 [ext_resource type="Script" uid="uid://dtnf284a7e6nx" path="res://Sinus-Simulation/sinus_2.gd" id="3_wifh4"]
 [ext_resource type="Script" uid="uid://dns8g73gy4w1b" path="res://Sinus-Simulation/sinus_1+2.gd" id="4_23w5p"]
 [ext_resource type="Script" uid="uid://cpw6s7ow8xyef" path="res://Sinus-Simulation/welle_1_button.gd" id="5_28wuw"]
@@ -13,6 +12,12 @@
 [ext_resource type="Script" uid="uid://c1vj7q666jw4k" path="res://Sinus-Simulation/welle_2_button.gd" id="6_yetfu"]
 [ext_resource type="Script" uid="uid://dq7dklabqqhlb" path="res://Sinus-Simulation/zurück_button.gd" id="7_c04v5"]
 [ext_resource type="Script" uid="uid://cqwnv5q0jqvgt" path="res://Sinus-Simulation/welle_2_einzeln_button.gd" id="8_23w5p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54x1t"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_54x1t"]
+default_font_size = 11
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fwq1"]
 bg_color = Color(1, 0, 0, 1)
@@ -96,11 +101,79 @@ position = Vector2(200, -85)
 scale = Vector2(0.8, 0.8)
 default_color = Color(1, 0, 0, 1)
 
-[node name="Scala-bild" type="Sprite2D" parent="Sinus1bereich/Control"]
-show_behind_parent = true
-position = Vector2(294, -85)
+[node name="Scala-Control" type="Control" parent="Sinus1bereich/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 200.0
+offset_top = -138.0
+offset_right = 435.0
+offset_bottom = -38.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_l7bv2")
+pivot_offset = Vector2(0, 50)
+
+[node name="1_2" type="Label" parent="Sinus1bereich/Control/Scala-Control"]
+layout_mode = 2
+offset_left = 112.0
+offset_top = 34.0
+offset_right = 137.0
+offset_bottom = 56.3333
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "1/2"
+
+[node name="1s" type="Label" parent="Sinus1bereich/Control/Scala-Control"]
+offset_left = 222.0
+offset_top = 34.0
+offset_right = 247.0
+offset_bottom = 56.3333
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "1s"
+
+[node name="hbox" type="HBoxContainer" parent="Sinus1bereich/Control/Scala-Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 104.0
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="Sinus1bereich/Control/Scala-Control/hbox"]
+custom_minimum_size = Vector2(2, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_54x1t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sinus1bereich/Control/Scala-Control/hbox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="+50" type="Label" parent="Sinus1bereich/Control/Scala-Control/hbox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource("Theme_54x1t")
+text = "+50"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sinus1bereich/Control/Scala-Control/hbox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+
+[node name="Panel2" type="Panel" parent="Sinus1bereich/Control/Scala-Control/hbox/VBoxContainer"]
+custom_minimum_size = Vector2(235, 2)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_54x1t")
+
+[node name="-50" type="Label" parent="Sinus1bereich/Control/Scala-Control/hbox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource("Theme_54x1t")
+text = "-50"
 
 [node name="Sinus2bereich" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -165,11 +238,79 @@ scale = Vector2(0.8, 0.8)
 default_color = Color(0, 1, 0, 1)
 script = ExtResource("3_wifh4")
 
-[node name="Scala-bild" type="Sprite2D" parent="Sinus2bereich/Control"]
-show_behind_parent = true
-position = Vector2(294, -85)
+[node name="Scala-Control" type="Control" parent="Sinus2bereich/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 200.0
+offset_top = -138.0
+offset_right = 435.0
+offset_bottom = -38.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_l7bv2")
+pivot_offset = Vector2(0, 50)
+
+[node name="1_2" type="Label" parent="Sinus2bereich/Control/Scala-Control"]
+layout_mode = 2
+offset_left = 112.0
+offset_top = 34.0
+offset_right = 137.0
+offset_bottom = 56.3333
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "1/2"
+
+[node name="1s" type="Label" parent="Sinus2bereich/Control/Scala-Control"]
+offset_left = 222.0
+offset_top = 34.0
+offset_right = 247.0
+offset_bottom = 56.3333
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "1s"
+
+[node name="hbox" type="HBoxContainer" parent="Sinus2bereich/Control/Scala-Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 104.0
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="Sinus2bereich/Control/Scala-Control/hbox"]
+custom_minimum_size = Vector2(2, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_54x1t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sinus2bereich/Control/Scala-Control/hbox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="+50" type="Label" parent="Sinus2bereich/Control/Scala-Control/hbox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource("Theme_54x1t")
+text = "+50"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sinus2bereich/Control/Scala-Control/hbox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+
+[node name="Panel2" type="Panel" parent="Sinus2bereich/Control/Scala-Control/hbox/VBoxContainer"]
+custom_minimum_size = Vector2(235, 2)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_54x1t")
+
+[node name="-50" type="Label" parent="Sinus2bereich/Control/Scala-Control/hbox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource("Theme_54x1t")
+text = "-50"
 
 [node name="Sinus1+2bereich" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -182,29 +323,97 @@ offset_bottom = 390.0
 layout_mode = 2
 
 [node name="Sinus1+2" parent="Sinus1+2bereich/Control" instance=ExtResource("2_c04v5")]
-position = Vector2(60, 170)
+position = Vector2(60, 200)
 scale = Vector2(0.8, 0.8)
 width = 4.0
 default_color = Color(2.5028e-06, 0.510523, 0.458261, 1)
 script = ExtResource("4_23w5p")
 
 [node name="Sinus1" parent="Sinus1+2bereich/Control" instance=ExtResource("2_c04v5")]
-position = Vector2(60, 170)
+position = Vector2(60, 200)
 scale = Vector2(0.8, 0.8)
 default_color = Color(1, 0, 0, 0.392157)
 script = ExtResource("5_yetfu")
 
 [node name="Sinus2" parent="Sinus1+2bereich/Control" instance=ExtResource("2_c04v5")]
-position = Vector2(60, 170)
+position = Vector2(60, 200)
 scale = Vector2(0.8, 0.8)
 default_color = Color(0, 1, 0, 0.392157)
 script = ExtResource("6_l7bv2")
 
-[node name="Scala-bild" type="Sprite2D" parent="Sinus1+2bereich/Control"]
-show_behind_parent = true
-position = Vector2(152, 170)
+[node name="Scala-Control" type="Control" parent="Sinus1+2bereich/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 60.0
+offset_top = 148.0
+offset_right = 295.0
+offset_bottom = 248.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_l7bv2")
+pivot_offset = Vector2(0, 50)
+
+[node name="1_2" type="Label" parent="Sinus1+2bereich/Control/Scala-Control"]
+layout_mode = 2
+offset_left = 112.0
+offset_top = 34.0
+offset_right = 137.0
+offset_bottom = 56.3333
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "1/2"
+
+[node name="1s" type="Label" parent="Sinus1+2bereich/Control/Scala-Control"]
+offset_left = 222.0
+offset_top = 34.0
+offset_right = 247.0
+offset_bottom = 56.3333
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "1s"
+
+[node name="hbox" type="HBoxContainer" parent="Sinus1+2bereich/Control/Scala-Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 104.0
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="Sinus1+2bereich/Control/Scala-Control/hbox"]
+custom_minimum_size = Vector2(2, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_54x1t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sinus1+2bereich/Control/Scala-Control/hbox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="+50" type="Label" parent="Sinus1+2bereich/Control/Scala-Control/hbox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource("Theme_54x1t")
+text = "+50"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sinus1+2bereich/Control/Scala-Control/hbox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+
+[node name="Panel2" type="Panel" parent="Sinus1+2bereich/Control/Scala-Control/hbox/VBoxContainer"]
+custom_minimum_size = Vector2(235, 2)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_54x1t")
+
+[node name="-50" type="Label" parent="Sinus1+2bereich/Control/Scala-Control/hbox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource("Theme_54x1t")
+text = "-50"
 
 [node name="Label" type="Label" parent="Sinus1+2bereich"]
 layout_mode = 2
@@ -261,14 +470,6 @@ offset_right = 853.0
 offset_bottom = 481.0
 text = "zurück"
 script = ExtResource("7_c04v5")
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 639.0
-offset_top = 349.0
-offset_right = 639.0
-offset_bottom = 349.0
 
 [connection signal="pressed" from="HBoxContainer/Simulation-stoppen-button" to="HBoxContainer/Simulation-stoppen-button" method="_on_pressed"]
 [connection signal="text_changed" from="Sinus1bereich/Text_Eingabe/Amp_Eingabe1" to="Sinus1bereich/Control/Sinus1" method="_on_amp_eingabe_1_text_changed"]
