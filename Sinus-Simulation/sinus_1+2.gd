@@ -43,15 +43,21 @@ func get_y2():
 		return(0)
 		
 func _process(delta: float) -> void:
+	if welle1_sichtbar == 0 and welle2_sichtbar == 0:
+		hide()
+	else:
+		show()
 	bewegungs_geschwindigkeit += geschwindigkeit * delta
-	
-	for i in range(num_points - 1):
-		var next_pos = get_point_position(i + 1)
-		set_point_position(i, Vector2(next_pos.x - abstand, next_pos.y))
-	
-	
-	var yges = get_y1() + get_y2()
-	set_point_position(num_points-1, Vector2(num_points* abstand +1, yges))
+	if SinusWellen.simulatoin_anhalten == 1:
+		pass
+	else:
+		for i in range(num_points - 1):
+			var next_pos = get_point_position(i + 1)
+			set_point_position(i, Vector2(next_pos.x - abstand, next_pos.y))
+		
+		
+		var yges = get_y1() + get_y2()
+		set_point_position(num_points-1, Vector2(num_points* abstand +1, yges))
 
 
 func _on_welle_1_button_pressed() -> void:

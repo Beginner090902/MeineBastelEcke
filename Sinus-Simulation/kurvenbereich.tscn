@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6w2llwaw2d3u"]
+[gd_scene load_steps=15 format=3 uid="uid://c6w2llwaw2d3u"]
 
 [ext_resource type="Script" uid="uid://dgeb7keo48lkf" path="res://Sinus-Simulation/Sinus-Wellen-Simulaton.gd" id="1_4dnlt"]
+[ext_resource type="Script" uid="uid://cwjrrvlspox5q" path="res://Sinus-Simulation/simulation_stoppen_button.gd" id="2_54x1t"]
 [ext_resource type="PackedScene" uid="uid://bvbscjgvy6ius" path="res://Sinus-Simulation/sinus_1.tscn" id="2_c04v5"]
+[ext_resource type="Texture2D" uid="uid://cju7vanscyqst" path="res://Sinus-Simulation/Scala-bild.png" id="3_l7bv2"]
 [ext_resource type="Script" uid="uid://dtnf284a7e6nx" path="res://Sinus-Simulation/sinus_2.gd" id="3_wifh4"]
 [ext_resource type="Script" uid="uid://dns8g73gy4w1b" path="res://Sinus-Simulation/sinus_1+2.gd" id="4_23w5p"]
 [ext_resource type="Script" uid="uid://cpw6s7ow8xyef" path="res://Sinus-Simulation/welle_1_button.gd" id="5_28wuw"]
@@ -21,6 +23,16 @@ anchors_preset = 0
 offset_right = 900.0
 offset_bottom = 500.0
 script = ExtResource("1_4dnlt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Simulation-stoppen-button" type="CheckButton" parent="HBoxContainer"]
+layout_mode = 2
+text = "Stop"
+script = ExtResource("2_54x1t")
 
 [node name="Sinus1bereich" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -83,6 +95,12 @@ unique_name_in_owner = true
 position = Vector2(200, -85)
 scale = Vector2(0.8, 0.8)
 default_color = Color(1, 0, 0, 1)
+
+[node name="Scala-bild" type="Sprite2D" parent="Sinus1bereich/Control"]
+show_behind_parent = true
+position = Vector2(294, -85)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_l7bv2")
 
 [node name="Sinus2bereich" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -147,6 +165,12 @@ scale = Vector2(0.8, 0.8)
 default_color = Color(0, 1, 0, 1)
 script = ExtResource("3_wifh4")
 
+[node name="Scala-bild" type="Sprite2D" parent="Sinus2bereich/Control"]
+show_behind_parent = true
+position = Vector2(294, -85)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_l7bv2")
+
 [node name="Sinus1+2bereich" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 474.0
@@ -175,6 +199,12 @@ position = Vector2(60, 170)
 scale = Vector2(0.8, 0.8)
 default_color = Color(0, 1, 0, 0.392157)
 script = ExtResource("6_l7bv2")
+
+[node name="Scala-bild" type="Sprite2D" parent="Sinus1+2bereich/Control"]
+show_behind_parent = true
+position = Vector2(152, 170)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_l7bv2")
 
 [node name="Label" type="Label" parent="Sinus1+2bereich"]
 layout_mode = 2
@@ -232,6 +262,15 @@ offset_bottom = 481.0
 text = "zurück"
 script = ExtResource("7_c04v5")
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 639.0
+offset_top = 349.0
+offset_right = 639.0
+offset_bottom = 349.0
+
+[connection signal="pressed" from="HBoxContainer/Simulation-stoppen-button" to="HBoxContainer/Simulation-stoppen-button" method="_on_pressed"]
 [connection signal="text_changed" from="Sinus1bereich/Text_Eingabe/Amp_Eingabe1" to="Sinus1bereich/Control/Sinus1" method="_on_amp_eingabe_1_text_changed"]
 [connection signal="text_changed" from="Sinus1bereich/Text_Eingabe/Fre_Eingabe1" to="Sinus1bereich/Control/Sinus1" method="_on_fre_eingabe_1_text_changed"]
 [connection signal="text_changed" from="Sinus1bereich/Text_Eingabe/Xver_Eingabe1" to="Sinus1bereich/Control/Sinus1" method="_on_xver_eingabe_1_text_changed"]

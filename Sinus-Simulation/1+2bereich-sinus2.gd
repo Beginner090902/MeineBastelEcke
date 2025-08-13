@@ -31,12 +31,15 @@ func _process(delta: float) -> void:
 	var offeset_y = SinusWellen.offset_y2
 	bewegungs_geschwindigkeit += geschwindigkeit * delta
 	
-	for i in range(num_points - 1):
-		var next_pos = get_point_position(i + 1)
-		set_point_position(i, Vector2(next_pos.x - abstand, next_pos.y))
-	
-	var y = amplitude * sin(frequency * bewegungs_geschwindigkeit + offset_x) + offeset_y
-	set_point_position(num_points-1, Vector2(num_points* abstand +1, y))
+	if SinusWellen.simulatoin_anhalten == 1:
+		pass
+	else:
+		for i in range(num_points - 1):
+			var next_pos = get_point_position(i + 1)
+			set_point_position(i, Vector2(next_pos.x - abstand, next_pos.y))
+		
+		var y = amplitude * sin(frequency * bewegungs_geschwindigkeit + offset_x) + offeset_y
+		set_point_position(num_points-1, Vector2(num_points* abstand +1, y))
 
 
 func _on_amp_eingabe_1_text_changed(new_text: String) -> void:
