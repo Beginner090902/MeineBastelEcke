@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cai3brn5qfu2v"]
+[gd_scene load_steps=4 format=3 uid="uid://cai3brn5qfu2v"]
 
+[ext_resource type="Script" uid="uid://b8rscerrftfpr" path="res://Hauptmenü/hauptmenü.gd" id="1_fwphb"]
 [ext_resource type="Script" uid="uid://ogirkl0hk5t0" path="res://Hauptmenü/sinus_wellen_simulation_button.gd" id="1_rmmmx"]
 [ext_resource type="Script" uid="uid://cuy0vpr6xb2ih" path="res://Hauptmenü/exit_game.gd" id="2_m1wvj"]
 
@@ -8,6 +9,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 900.0
 offset_bottom = 500.0
+script = ExtResource("1_fwphb")
 
 [node name="Menü" type="Label" parent="."]
 layout_mode = 0
@@ -40,5 +42,14 @@ offset_bottom = 36.0
 text = "Exit"
 script = ExtResource("2_m1wvj")
 
+[node name="go-to-settings-Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 735.0
+offset_top = 5.0
+offset_right = 848.0
+offset_bottom = 36.0
+text = "Einstellungen"
+
 [connection signal="pressed" from="ScrollContainer/GridContainer/Sinus-Wellen-Simulation-button" to="ScrollContainer/GridContainer/Sinus-Wellen-Simulation-button" method="_on_pressed"]
 [connection signal="pressed" from="Exit-Game" to="Exit-Game" method="_on_pressed"]
+[connection signal="pressed" from="go-to-settings-Button" to="." method="_on_gotosettings_button_pressed"]
