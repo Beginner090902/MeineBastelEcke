@@ -94,6 +94,3 @@ func _process(delta: float) -> void:
 	time_sins_last_frame = 0
 	Simulation()
 	print(Get_Breite(CONWAYSVARIABEL.Pixel))
-
-	
-	

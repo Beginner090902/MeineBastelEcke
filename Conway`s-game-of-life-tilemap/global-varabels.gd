@@ -1,6 +1,6 @@
 extends Node
 
-var Pixel := 9
+var Pixel := 25
 var Breite : int
 
 var life_buton_tl := 0
