@@ -12,7 +12,7 @@ config_version=5
 
 config/name="MeineDenckEcke"
 run/main_scene="uid://cai3brn5qfu2v"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Hauptmenü/icon.svg"
 
 [autoload]
