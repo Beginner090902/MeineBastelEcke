@@ -1,0 +1,281 @@
+[gd_scene load_steps=19 format=3 uid="uid://cq8uyhtklkyp2"]
+
+[ext_resource type="Script" uid="uid://c4awvh34txl4a" path="res://Conway`s-game-of-life-tilemap/conways_game_slow.gd" id="1_hqat2"]
+[ext_resource type="Script" uid="uid://trtaa082xkq4" path="res://Conway`s-game-of-life-tilemap/pixel_edit.gd" id="2_c26pr"]
+[ext_resource type="Script" uid="uid://bmwh0e5errk0d" path="res://Conway`s-game-of-life-tilemap/top_left_button.gd" id="2_hqat2"]
+[ext_resource type="Script" uid="uid://c1b1an43rrbed" path="res://Conway`s-game-of-life-tilemap/top_button.gd" id="3_4spbl"]
+[ext_resource type="Script" uid="uid://bjvhecded6r5e" path="res://Conway`s-game-of-life-tilemap/top_right_button.gd" id="4_4d5oa"]
+[ext_resource type="Script" uid="uid://s3l6676qsogp" path="res://Conway`s-game-of-life-tilemap/left_button.gd" id="5_60fik"]
+[ext_resource type="Script" uid="uid://b8fxahyce7ljm" path="res://Conway`s-game-of-life-tilemap/right_button.gd" id="7_18t3m"]
+[ext_resource type="Script" uid="uid://d4ill2jr61mgl" path="res://Conway`s-game-of-life-tilemap/botum_left_button_2.gd" id="8_72sam"]
+[ext_resource type="Script" uid="uid://bwg28wjligcnh" path="res://Conway`s-game-of-life-tilemap/botum_button_2.gd" id="9_4763q"]
+[ext_resource type="Script" uid="uid://bcyr22bp7sch" path="res://Conway`s-game-of-life-tilemap/botum_right_button.gd" id="10_qxime"]
+[ext_resource type="Script" uid="uid://dh3ccnbsofk73" path="res://Conway`s-game-of-life-tilemap/dead_top_left_button.gd" id="11_1bgy4"]
+[ext_resource type="Script" uid="uid://c8ml1trnhafko" path="res://Conway`s-game-of-life-tilemap/dead_top_button.gd" id="12_xjx0o"]
+[ext_resource type="Script" uid="uid://keagxvoup2fu" path="res://Conway`s-game-of-life-tilemap/dead_left_button.gd" id="13_3oev7"]
+[ext_resource type="Script" uid="uid://b1i0rwaeh7i5" path="res://Conway`s-game-of-life-tilemap/dead_top_right_button.gd" id="13_20eun"]
+[ext_resource type="Script" uid="uid://b2i6c2ycuikyp" path="res://Conway`s-game-of-life-tilemap/dead_right_button.gd" id="16_sf3uc"]
+[ext_resource type="Script" uid="uid://dyn4685pkm8db" path="res://Conway`s-game-of-life-tilemap/dead_botum_left_button_2.gd" id="17_63756"]
+[ext_resource type="Script" uid="uid://cpdcdk4auqpsb" path="res://Conway`s-game-of-life-tilemap/dead_botum_button_2.gd" id="18_c26pr"]
+[ext_resource type="Script" uid="uid://oa6flmmlosd1" path="res://Conway`s-game-of-life-tilemap/dead_botum_right_button.gd" id="19_aou51"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hqat2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Links-MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Linke_seite" type="VBoxContainer" parent="HBoxContainer/Links-MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Pixel_Container" type="HBoxContainer" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
+layout_mode = 2
+
+[node name="Pixel" type="Label" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Pixel_Container"]
+layout_mode = 2
+text = "Pixel"
+
+[node name="Pixel-edit" type="LineEdit" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Pixel_Container"]
+layout_mode = 2
+size_flags_horizontal = 10
+placeholder_text = "9"
+virtual_keyboard_type = 2
+script = ExtResource("2_c26pr")
+
+[node name="Speed_Container" type="HBoxContainer" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
+layout_mode = 2
+
+[node name="Speed" type="Label" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Speed_Container"]
+layout_mode = 2
+text = "Speed"
+
+[node name="speed_edit" type="LineEdit" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Speed_Container"]
+layout_mode = 2
+size_flags_horizontal = 10
+placeholder_text = "s"
+
+[node name="Start-dichteContainer" type="HBoxContainer" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
+layout_mode = 2
+
+[node name="dichte" type="Label" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Start-dichteContainer"]
+layout_mode = 2
+text = "Start Dichte"
+
+[node name="dichte-Edit" type="LineEdit" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Start-dichteContainer"]
+layout_mode = 2
+placeholder_text = "0 %"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
+layout_mode = 2
+
+[node name="Muster" type="Label" parent="HBoxContainer/Links-MarginContainer/Linke_seite/HBoxContainer"]
+layout_mode = 2
+text = "Muster"
+
+[node name="muster-OptionButton" type="OptionButton" parent="HBoxContainer/Links-MarginContainer/Linke_seite/HBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Leer"
+popup/item_0/id = 0
+popup/item_1/text = "Voll Weiß"
+popup/item_1/id = 1
+
+[node name="leeren" type="Button" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
+layout_mode = 2
+text = "leeren"
+
+[node name="CanvasRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="REchts-MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Rechte_seite" type="VBoxContainer" parent="HBoxContainer/REchts-MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Mode" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Mode"
+
+[node name="Mode-Container" type="HBoxContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+layout_mode = 2
+
+[node name="run-simulation" type="CheckButton" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Mode-Container"]
+layout_mode = 2
+text = "Run"
+
+[node name="singel-step" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Mode-Container"]
+layout_mode = 2
+text = "Step/Stop"
+
+[node name="Step-size" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Step sice"
+
+[node name="Button-Container" type="HBoxContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="+1" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Button-Container"]
+layout_mode = 2
+text = "+1"
+
+[node name="+2" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Button-Container"]
+layout_mode = 2
+text = "+2"
+
+[node name="+3" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Button-Container"]
+layout_mode = 2
+text = "+3"
+
+[node name="back-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "1 Back"
+
+[node name="Life bedingung" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Leb Bedingungen"
+
+[node name="Life-GridContainer" type="GridContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="Top-left-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("2_hqat2")
+
+[node name="Top-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("3_4spbl")
+
+[node name="Top-Right-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("4_4d5oa")
+
+[node name="Left-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("5_60fik")
+
+[node name="Middel-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="Right-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("7_18t3m")
+
+[node name="Botum-left-Button2" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("8_72sam")
+
+[node name="Botum-Button2" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("9_4763q")
+
+[node name="Botum-Right-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("10_qxime")
+
+[node name="Sterb Bedingungen" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sterb Bedingungen"
+
+[node name="Dead-GridContainer" type="GridContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="dead-Top-left-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("11_1bgy4")
+
+[node name="dead-Top-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("12_xjx0o")
+
+[node name="dead-Top-Right-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("13_20eun")
+
+[node name="dead-Left-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("13_3oev7")
+
+[node name="dead-Middel-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="dead-Right-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("16_sf3uc")
+
+[node name="dead-Botum-left-Button2" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("17_63756")
+
+[node name="dead-Botum-Button2" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("18_c26pr")
+
+[node name="dead-Botum-Right-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+script = ExtResource("19_aou51")
+
+[connection signal="text_changed" from="HBoxContainer/Links-MarginContainer/Linke_seite/Pixel_Container/Pixel-edit" to="HBoxContainer/Links-MarginContainer/Linke_seite/Pixel_Container/Pixel-edit" method="_on_text_changed"]

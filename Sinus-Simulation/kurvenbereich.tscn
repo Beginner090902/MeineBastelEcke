@@ -123,6 +123,7 @@ size_flags_vertical = 8
 text = "1/2"
 
 [node name="1s" type="Label" parent="Sinus1bereich/Control/Scala-Control"]
+layout_mode = 0
 offset_left = 222.0
 offset_top = 34.0
 offset_right = 247.0
@@ -260,6 +261,7 @@ size_flags_vertical = 8
 text = "1/2"
 
 [node name="1s" type="Label" parent="Sinus2bereich/Control/Scala-Control"]
+layout_mode = 0
 offset_left = 222.0
 offset_top = 34.0
 offset_right = 247.0
@@ -363,6 +365,7 @@ size_flags_vertical = 8
 text = "1/2"
 
 [node name="1s" type="Label" parent="Sinus1+2bereich/Control/Scala-Control"]
+layout_mode = 0
 offset_left = 222.0
 offset_top = 34.0
 offset_right = 247.0

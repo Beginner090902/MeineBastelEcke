@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqxjmao7i5nhp"]
+[gd_scene load_steps=3 format=3 uid="uid://dqxjmao7i5nhp"]
 
 [ext_resource type="Script" uid="uid://df0nvjdqecv0p" path="res://settings/settings_scren.gd" id="1_5w5f0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5w5f0"]
+font_size = 20
 
 [node name="Settings-scren" type="Control"]
 layout_mode = 3
@@ -11,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5w5f0")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,19 +22,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="setting-label" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Auflösung" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_constants/margin_top = 5
+
+[node name="Settings" type="Label" parent="VBoxContainer/setting-label"]
+layout_mode = 2
+text = "Einstellungen"
+label_settings = SubResource("LabelSettings_5w5f0")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="linkebox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="auflösung-box" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/linkebox"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/linkebox/auflösung-box"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Auflösung" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/linkebox/auflösung-box/HBoxContainer"]
+layout_mode = 2
 text = "Auflösung"
 
-[node name="Auflösung-aussuchen" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Auflösung-aussuchen" type="OptionButton" parent="VBoxContainer/MarginContainer/HBoxContainer/linkebox/auflösung-box/HBoxContainer"]
 layout_mode = 2
+selected = 2
 item_count = 3
 popup/item_0/text = "1920x1080"
 popup/item_0/id = 0
@@ -40,7 +74,11 @@ popup/item_1/id = 1
 popup/item_2/text = "900x500"
 popup/item_2/id = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Vollbild" type="CheckButton" parent="VBoxContainer/MarginContainer/HBoxContainer/linkebox"]
+layout_mode = 2
+text = "Vollbild"
+
+[node name="bock-button" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
@@ -49,11 +87,12 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="scen-exit-Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="scen-exit-Button" type="Button" parent="VBoxContainer/MarginContainer/bock-button"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
 text = "Back"
 
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/HBoxContainer/Auflösung-aussuchen" to="." method="_on_auflösungaussuchen_item_selected"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/scen-exit-Button" to="." method="_on_scenexit_button_pressed"]
+[connection signal="item_selected" from="VBoxContainer/MarginContainer/HBoxContainer/linkebox/auflösung-box/HBoxContainer/Auflösung-aussuchen" to="." method="_on_auflösungaussuchen_item_selected"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/linkebox/Vollbild" to="." method="_on_vollbild_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/bock-button/scen-exit-Button" to="." method="_on_scenexit_button_pressed"]

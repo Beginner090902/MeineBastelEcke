@@ -1,0 +1,28 @@
+Pixelanzahl / Auflösung → wie viele Zellen simuliert werden.
+
+Simulationsgeschwindigkeit → wie schnell die Generationen berechnet werden.
+
+Einzelschritte → manuell weiterklicken.
+
+🟢 1. Startbedingungen
+
+Zufallsdichte: Wie viele Zellen sind am Anfang lebendig (z. B. 10%, 30%, 50%).
+
+Seed / Zufallsstart oder feste Muster laden (Glider, Pulsar, Gosper Gun, etc.).
+
+Manuelles Setzen von Zellen (mit der Maus Pixel ein/aus zeichnen).
+
+🟢 2. Spielregeln variieren
+Überlebensbedingungen (z. B. Zelle überlebt mit 2 oder 3 Nachbarn → Standard Conway: S23).
+
+Geburtsbedingungen (z. B. eine neue Zelle entsteht bei genau 3 Nachbarn → Standard Conway: B3).
+
+🟢 5. Interaktion & Komfort
+
+Pause / Fortsetzen.
+
+Rückgängig (ein paar Schritte zurück).
+
+Speichern / Laden von Mustern (als Datei oder String).
+
+Unterschiedliche Start-Layouts: Zufall, Linien, Blöcke, bekannte Muster.
