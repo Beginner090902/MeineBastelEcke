@@ -1,7 +1,9 @@
 extends Node
 
-var Pixel := 25
+var Simulation_Status= false
+var Pixel : int
 var Breite : int
+var simulation_speed_in_seconds := 0
 
 var life_buton_tl := 0
 var life_buton_t := 0
@@ -22,6 +24,7 @@ var dead_buton_r := 0
 var dead_buton_bl := 0
 var dead_buton_b := 0
 var dead_buton_br := 0
+
 
 
 # Called when the node enters the scene tree for the first time.

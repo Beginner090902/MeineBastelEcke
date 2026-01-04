@@ -1,31 +1,28 @@
-[gd_scene load_steps=19 format=3 uid="uid://cq8uyhtklkyp2"]
+[gd_scene load_steps=20 format=3 uid="uid://cq8uyhtklkyp2"]
 
 [ext_resource type="Script" uid="uid://c4awvh34txl4a" path="res://Conway`s-game-of-life-tilemap/conways_game_slow.gd" id="1_hqat2"]
-[ext_resource type="Script" uid="uid://trtaa082xkq4" path="res://Conway`s-game-of-life-tilemap/pixel_edit.gd" id="2_c26pr"]
-[ext_resource type="Script" uid="uid://cdplipo4303nv" path="res://Conway`s-game-of-life-tilemap/life_tl_b.gd" id="3_4spbl"]
-[ext_resource type="Script" uid="uid://c08mm30peg57t" path="res://Conway`s-game-of-life-tilemap/life_tm_b.gd" id="4_4d5oa"]
-[ext_resource type="Script" uid="uid://c85bagnuj0h0l" path="res://Conway`s-game-of-life-tilemap/life_tr_b.gd" id="5_1bgy4"]
-[ext_resource type="Script" uid="uid://bsfutft7612pc" path="res://Conway`s-game-of-life-tilemap/life_ml_b.gd" id="6_xjx0o"]
-[ext_resource type="Script" uid="uid://b726vy7ml8x5l" path="res://Conway`s-game-of-life-tilemap/life_mr_b.gd" id="8_20eun"]
-[ext_resource type="Script" uid="uid://cgx11ulm23nng" path="res://Conway`s-game-of-life-tilemap/life_bl_b.gd" id="9_0lw6c"]
-[ext_resource type="Script" uid="uid://cjk8ovvof5bp8" path="res://Conway`s-game-of-life-tilemap/life_bm_b.gd" id="10_sf3uc"]
-[ext_resource type="Script" uid="uid://cguks7vbgbxea" path="res://Conway`s-game-of-life-tilemap/life_br_b.gd" id="11_63756"]
-[ext_resource type="Script" uid="uid://cklgnuebxfopl" path="res://Conway`s-game-of-life-tilemap/dead_tl_b.gd" id="12_xjx0o"]
-[ext_resource type="Script" uid="uid://cgiu0hm2xbj0j" path="res://Conway`s-game-of-life-tilemap/dead_tm_b.gd" id="13_vrtao"]
-[ext_resource type="Script" uid="uid://bpmc20bgmxaef" path="res://Conway`s-game-of-life-tilemap/dead_tr_b.gd" id="14_fjwj2"]
-[ext_resource type="Script" uid="uid://c1wxiwcd3kfyh" path="res://Conway`s-game-of-life-tilemap/dead_ml_b.gd" id="15_7lipr"]
-[ext_resource type="Script" uid="uid://cnxeyvkgd2ycg" path="res://Conway`s-game-of-life-tilemap/dead_mr_b.gd" id="17_ciy1y"]
-[ext_resource type="Script" uid="uid://cd6y84hdct44t" path="res://Conway`s-game-of-life-tilemap/dead_bl_b.gd" id="18_8gm6u"]
-[ext_resource type="Script" uid="uid://dsaaabwutp7rx" path="res://Conway`s-game-of-life-tilemap/dead_bm_b.gd" id="19_jhiyg"]
-[ext_resource type="Script" uid="uid://b8a3pwhv3ljw" path="res://Conway`s-game-of-life-tilemap/dead_br_b.gd" id="20_evrof"]
+[ext_resource type="Script" uid="uid://trtaa082xkq4" path="res://Conway`s-game-of-life-tilemap/Left GUI/pixel_edit.gd" id="2_c26pr"]
+[ext_resource type="Script" uid="uid://cdplipo4303nv" path="res://Conway`s-game-of-life-tilemap/Life Button/life_tl_b.gd" id="3_4spbl"]
+[ext_resource type="Script" uid="uid://c08mm30peg57t" path="res://Conway`s-game-of-life-tilemap/Life Button/life_tm_b.gd" id="4_4d5oa"]
+[ext_resource type="Script" uid="uid://c85bagnuj0h0l" path="res://Conway`s-game-of-life-tilemap/Life Button/life_tr_b.gd" id="5_1bgy4"]
+[ext_resource type="Script" uid="uid://bsfutft7612pc" path="res://Conway`s-game-of-life-tilemap/Life Button/life_ml_b.gd" id="6_xjx0o"]
+[ext_resource type="Script" uid="uid://b726vy7ml8x5l" path="res://Conway`s-game-of-life-tilemap/Life Button/life_mr_b.gd" id="8_20eun"]
+[ext_resource type="Script" uid="uid://cgx11ulm23nng" path="res://Conway`s-game-of-life-tilemap/Life Button/life_bl_b.gd" id="9_0lw6c"]
+[ext_resource type="Script" uid="uid://cjk8ovvof5bp8" path="res://Conway`s-game-of-life-tilemap/Life Button/life_bm_b.gd" id="10_sf3uc"]
+[ext_resource type="Script" uid="uid://cguks7vbgbxea" path="res://Conway`s-game-of-life-tilemap/Life Button/life_br_b.gd" id="11_63756"]
+[ext_resource type="Script" uid="uid://cklgnuebxfopl" path="res://Conway`s-game-of-life-tilemap/Dead Button/dead_tl_b.gd" id="12_xjx0o"]
+[ext_resource type="Script" uid="uid://cgiu0hm2xbj0j" path="res://Conway`s-game-of-life-tilemap/Dead Button/dead_tm_b.gd" id="13_vrtao"]
+[ext_resource type="Script" uid="uid://bpmc20bgmxaef" path="res://Conway`s-game-of-life-tilemap/Dead Button/dead_tr_b.gd" id="14_fjwj2"]
+[ext_resource type="Script" uid="uid://c1wxiwcd3kfyh" path="res://Conway`s-game-of-life-tilemap/Dead Button/dead_ml_b.gd" id="15_7lipr"]
+[ext_resource type="Script" uid="uid://cnxeyvkgd2ycg" path="res://Conway`s-game-of-life-tilemap/Dead Button/dead_mr_b.gd" id="17_ciy1y"]
+[ext_resource type="Script" uid="uid://cd6y84hdct44t" path="res://Conway`s-game-of-life-tilemap/Dead Button/dead_bl_b.gd" id="18_8gm6u"]
+[ext_resource type="Script" uid="uid://dq7dklabqqhlb" path="res://Sinus-Simulation/zurück_button.gd" id="19_aou51"]
+[ext_resource type="Script" uid="uid://dsaaabwutp7rx" path="res://Conway`s-game-of-life-tilemap/Dead Button/dead_bm_b.gd" id="19_jhiyg"]
+[ext_resource type="Script" uid="uid://b8a3pwhv3ljw" path="res://Conway`s-game-of-life-tilemap/Dead Button/dead_br_b.gd" id="20_evrof"]
 
-[node name="Control" type="Control"]
+[node name="conways_game_slow" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_hqat2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -33,6 +30,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 900.0
+offset_bottom = 500.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -49,6 +48,19 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="Button" type="Button" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Start or Stop the Simulation"
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.76862746, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.76862746, 0, 1)
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
+toggle_mode = true
+text = "Start/Stop"
+
 [node name="Pixel_Container" type="HBoxContainer" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
 layout_mode = 2
 
@@ -59,7 +71,10 @@ text = "Pixel"
 [node name="Pixel-edit" type="LineEdit" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Pixel_Container"]
 layout_mode = 2
 size_flags_horizontal = 10
-placeholder_text = "9"
+tooltip_text = "x*X=Pixel"
+placeholder_text = "Number"
+max_length = 4
+emoji_menu_enabled = false
 virtual_keyboard_type = 2
 script = ExtResource("2_c26pr")
 
@@ -73,6 +88,7 @@ text = "Speed"
 [node name="speed_edit" type="LineEdit" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Speed_Container"]
 layout_mode = 2
 size_flags_horizontal = 10
+tooltip_text = "Seconds per Life circle"
 placeholder_text = "s"
 
 [node name="Start-dichteContainer" type="HBoxContainer" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
@@ -84,7 +100,8 @@ text = "Start Dichte"
 
 [node name="dichte-Edit" type="LineEdit" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Start-dichteContainer"]
 layout_mode = 2
-placeholder_text = "0 %"
+tooltip_text = "Random Start Population"
+placeholder_text = "%"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
 layout_mode = 2
@@ -95,6 +112,7 @@ text = "Muster"
 
 [node name="muster-OptionButton" type="OptionButton" parent="HBoxContainer/Links-MarginContainer/Linke_seite/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Grid layout"
 selected = 0
 item_count = 2
 popup/item_0/text = "Leer"
@@ -104,13 +122,15 @@ popup/item_1/id = 1
 
 [node name="leeren" type="Button" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
 layout_mode = 2
-text = "leeren"
+tooltip_text = "Claer Grid"
+text = "Clear"
 
-[node name="CanvasRect" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 4
 size_flags_vertical = 4
+stretch_mode = 4
 
 [node name="REchts-MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -138,7 +158,7 @@ text = "Run"
 
 [node name="singel-step" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Mode-Container"]
 layout_mode = 2
-text = "Step/Stop"
+text = "Step(Manual)"
 
 [node name="Step-size" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
 layout_mode = 2
@@ -161,12 +181,6 @@ text = "+2"
 [node name="+3" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Button-Container"]
 layout_mode = 2
 text = "+3"
-
-[node name="back-Button" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "1 Back"
 
 [node name="Life bedingung" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
 layout_mode = 2
@@ -278,4 +292,15 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("20_evrof")
 
-[connection signal="text_changed" from="HBoxContainer/Links-MarginContainer/Linke_seite/Pixel_Container/Pixel-edit" to="HBoxContainer/Links-MarginContainer/Linke_seite/Pixel_Container/Pixel-edit" method="_on_text_changed"]
+[node name="Zurück-button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 450.0
+offset_right = 860.0
+offset_bottom = 481.0
+text = "zurück"
+script = ExtResource("19_aou51")
+
+[connection signal="pressed" from="HBoxContainer/Links-MarginContainer/Linke_seite/Button" to="." method="_on_button_pressed"]
+[connection signal="text_changed" from="HBoxContainer/Links-MarginContainer/Linke_seite/Pixel_Container/Pixel-edit" to="." method="_on_pixeledit_text_changed"]
+[connection signal="pressed" from="Zurück-button" to="Zurück-button" method="_on_pressed"]

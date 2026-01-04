@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SinusWellen="*res://Sinus-Simulation/Sinus-Wellen-Simulaton.gd"
 CONWAYSVARIABEL="*res://Conway`s-game-of-life-tilemap/global-varabels.gd"
+ConwaysGameSlow="*res://Conway`s-game-of-life-tilemap/conways_game_slow.gd"
 
 [display]
 
