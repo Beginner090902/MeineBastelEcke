@@ -6,6 +6,7 @@ var img: Image
 var tex: ImageTexture
 var time_sins_last_frame = 0
 
+
 func Update_img():
 	Resize_img()
 
@@ -104,7 +105,8 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_button_pressed() -> void:
+
+func _on_start_stop_button_pressed() -> void:
 	if CONWAYSVARIABEL.Simulation_Status == false:
 		CONWAYSVARIABEL.Simulation_Status = true
 	else :
@@ -112,9 +114,26 @@ func _on_button_pressed() -> void:
 	Logging("Simulation Status",CONWAYSVARIABEL.Simulation_Status)
 
 
-func _on_pixeledit_text_changed(new_text: String) -> void:
+
+func _on_simulation_speed_edit_text_submitted(new_text: String) -> void:
+	var regex = RegEx.new()
+	regex.compile("^[0-9]*$")
+	if regex.search(new_text):
+		CONWAYSVARIABEL.simulation_speed_in_seconds = int(new_text)
+		Logging("Simulations Speed Changed to ", CONWAYSVARIABEL.simulation_speed_in_seconds)
+
+
+func _on_pixelanzahldersimulation_text_submitted(new_text: String) -> void:
 	var regex = RegEx.new()
 	regex.compile("^[0-9]*$")
 	if regex.search(new_text):
 		CONWAYSVARIABEL.Pixel = int(new_text)
 		Update_img()
+
+
+func _on_bild_lerren_pressed() -> void:
+	Logging("Bild lerren gedrückt ", true)
+
+
+func _on_run_or_stepmode_toggled(toggled_on: bool) -> void:
+	Logging("Step oder Run Modus", toggled_on)

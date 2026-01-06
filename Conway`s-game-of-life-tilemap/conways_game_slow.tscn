@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cq8uyhtklkyp2"]
+[gd_scene load_steps=21 format=3 uid="uid://cq8uyhtklkyp2"]
 
 [ext_resource type="Script" uid="uid://c4awvh34txl4a" path="res://Conway`s-game-of-life-tilemap/conways_game_slow.gd" id="1_hqat2"]
 [ext_resource type="Script" uid="uid://trtaa082xkq4" path="res://Conway`s-game-of-life-tilemap/Left GUI/pixel_edit.gd" id="2_c26pr"]
@@ -19,6 +19,36 @@
 [ext_resource type="Script" uid="uid://dq7dklabqqhlb" path="res://Sinus-Simulation/zurück_button.gd" id="19_aou51"]
 [ext_resource type="Script" uid="uid://dsaaabwutp7rx" path="res://Conway`s-game-of-life-tilemap/Dead Button/dead_bm_b.gd" id="19_jhiyg"]
 [ext_resource type="Script" uid="uid://b8a3pwhv3ljw" path="res://Conway`s-game-of-life-tilemap/Dead Button/dead_br_b.gd" id="20_evrof"]
+
+[sub_resource type="GDScript" id="GDScript_aou51"]
+script/source = "extends VBoxContainer
+@onready var spiel_modus_index_1: VBoxContainer = $\"Spiel-Modus-index-1\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	get_tree_string_pretty()
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+
+
+
+
+func _on_rule_mode_id_pressed(id: int) -> void:
+	ConwaysGameSlow.Logging((\"Modus auswahl hat die id \"), id)
+	if spiel_modus_index_1 == null:
+		ConwaysGameSlow.Logging(\"Modus index 1 ist null\", true)
+		return
+	if id == 1:
+		spiel_modus_index_1.show()
+	else:
+		spiel_modus_index_1.hide()
+"
 
 [node name="conways_game_slow" type="Control"]
 layout_mode = 3
@@ -48,7 +78,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Button" type="Button" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
+[node name="Start_Stop Button" type="Button" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Start or Stop the Simulation"
@@ -68,7 +98,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Pixel"
 
-[node name="Pixel-edit" type="LineEdit" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Pixel_Container"]
+[node name="Pixel-anzahl-der-simulation" type="LineEdit" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Pixel_Container"]
 layout_mode = 2
 size_flags_horizontal = 10
 tooltip_text = "x*X=Pixel"
@@ -89,19 +119,42 @@ text = "Speed"
 layout_mode = 2
 size_flags_horizontal = 10
 tooltip_text = "Seconds per Life circle"
-placeholder_text = "s"
+placeholder_text = "ms (1000)"
 
 [node name="Start-dichteContainer" type="HBoxContainer" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
 layout_mode = 2
 
 [node name="dichte" type="Label" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Start-dichteContainer"]
 layout_mode = 2
-text = "Start Dichte"
+text = "Dichte"
 
-[node name="dichte-Edit" type="LineEdit" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Start-dichteContainer"]
+[node name="Startdichte in Prozent" type="OptionButton" parent="HBoxContainer/Links-MarginContainer/Linke_seite/Start-dichteContainer"]
 layout_mode = 2
-tooltip_text = "Random Start Population"
-placeholder_text = "%"
+size_flags_horizontal = 3
+selected = 0
+item_count = 11
+popup/item_0/text = "0%"
+popup/item_0/id = 0
+popup/item_1/text = "10%"
+popup/item_1/id = 10
+popup/item_2/text = "20%"
+popup/item_2/id = 20
+popup/item_3/text = "30%"
+popup/item_3/id = 30
+popup/item_4/text = "40%"
+popup/item_4/id = 40
+popup/item_5/text = "50%"
+popup/item_5/id = 50
+popup/item_6/text = "60%"
+popup/item_6/id = 60
+popup/item_7/text = "70%"
+popup/item_7/id = 70
+popup/item_8/text = "80"
+popup/item_8/id = 80
+popup/item_9/text = "90%"
+popup/item_9/id = 90
+popup/item_10/text = "100%"
+popup/item_10/id = 100
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
 layout_mode = 2
@@ -112,6 +165,7 @@ text = "Muster"
 
 [node name="muster-OptionButton" type="OptionButton" parent="HBoxContainer/Links-MarginContainer/Linke_seite/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 tooltip_text = "Grid layout"
 selected = 0
 item_count = 2
@@ -120,7 +174,7 @@ popup/item_0/id = 0
 popup/item_1/text = "Voll Weiß"
 popup/item_1/id = 1
 
-[node name="leeren" type="Button" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
+[node name="bild_lerren" type="Button" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
 layout_mode = 2
 tooltip_text = "Claer Grid"
 text = "Clear"
@@ -143,16 +197,23 @@ theme_override_constants/margin_bottom = 30
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = SubResource("GDScript_aou51")
 
-[node name="Mode" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+[node name="Leb-sterb-menu-auswahl" type="MenuBar" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Mode"
+
+[node name="Rule Mode" type="PopupMenu" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Leb-sterb-menu-auswahl"]
+item_count = 2
+item_0/text = "4 Rules"
+item_0/id = 0
+item_1/text = "Grid"
+item_1/id = 1
 
 [node name="Mode-Container" type="HBoxContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
 layout_mode = 2
 
-[node name="run-simulation" type="CheckButton" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Mode-Container"]
+[node name="run or step-mode" type="CheckButton" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Mode-Container"]
 layout_mode = 2
 text = "Run"
 
@@ -182,112 +243,116 @@ text = "+2"
 layout_mode = 2
 text = "+3"
 
-[node name="Life bedingung" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+[node name="Spiel-Modus-index-1" type="VBoxContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+visible = false
+layout_mode = 2
+
+[node name="Life bedingung" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Leb Bedingungen"
 
-[node name="Life-GridContainer" type="GridContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+[node name="Life-GridContainer" type="GridContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 3
 
-[node name="Life TL B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+[node name="Life TL B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Life-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("3_4spbl")
 
-[node name="Life TM B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+[node name="Life TM B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Life-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("4_4d5oa")
 
-[node name="Life TR B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+[node name="Life TR B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Life-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("5_1bgy4")
 
-[node name="Life ML B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+[node name="Life ML B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Life-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("6_xjx0o")
 
-[node name="Life MM B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+[node name="Life MM B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Life-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 
-[node name="Life MR B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+[node name="Life MR B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Life-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("8_20eun")
 
-[node name="Life BL B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+[node name="Life BL B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Life-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("9_0lw6c")
 
-[node name="Life BM B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+[node name="Life BM B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Life-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("10_sf3uc")
 
-[node name="Life BR B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Life-GridContainer"]
+[node name="Life BR B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Life-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("11_63756")
 
-[node name="Sterb Bedingungen" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+[node name="Sterb Bedingungen" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Sterb Bedingungen"
 
-[node name="Dead-GridContainer" type="GridContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+[node name="Dead-GridContainer" type="GridContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 3
 
-[node name="Dead TL B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+[node name="Dead TL B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Dead-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("12_xjx0o")
 
-[node name="Dead TM B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+[node name="Dead TM B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Dead-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("13_vrtao")
 
-[node name="Dead TR B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+[node name="Dead TR B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Dead-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("14_fjwj2")
 
-[node name="Dead ML B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+[node name="Dead ML B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Dead-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("15_7lipr")
 
-[node name="Dead MM B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+[node name="Dead MM B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Dead-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 
-[node name="Dead MR B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+[node name="Dead MR B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Dead-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("17_ciy1y")
 
-[node name="Dead BL B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+[node name="Dead BL B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Dead-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("18_8gm6u")
 
-[node name="Dead BM B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+[node name="Dead BM B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Dead-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("19_jhiyg")
 
-[node name="Dead BR B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Dead-GridContainer"]
+[node name="Dead BR B" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel-Modus-index-1/Dead-GridContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("20_evrof")
@@ -301,6 +366,12 @@ offset_bottom = 481.0
 text = "zurück"
 script = ExtResource("19_aou51")
 
-[connection signal="pressed" from="HBoxContainer/Links-MarginContainer/Linke_seite/Button" to="." method="_on_button_pressed"]
-[connection signal="text_changed" from="HBoxContainer/Links-MarginContainer/Linke_seite/Pixel_Container/Pixel-edit" to="." method="_on_pixeledit_text_changed"]
+[connection signal="pressed" from="HBoxContainer/Links-MarginContainer/Linke_seite/Start_Stop Button" to="." method="_on_start_stop_button_pressed"]
+[connection signal="text_submitted" from="HBoxContainer/Links-MarginContainer/Linke_seite/Pixel_Container/Pixel-anzahl-der-simulation" to="." method="_on_pixelanzahldersimulation_text_submitted"]
+[connection signal="text_submitted" from="HBoxContainer/Links-MarginContainer/Linke_seite/Speed_Container/speed_edit" to="." method="_on_simulation_speed_edit_text_submitted"]
+[connection signal="item_selected" from="HBoxContainer/Links-MarginContainer/Linke_seite/Start-dichteContainer/Startdichte in Prozent" to="." method="_on_startdichte_in_prozent_item_selected"]
+[connection signal="pressed" from="HBoxContainer/Links-MarginContainer/Linke_seite/bild_lerren" to="." method="_on_bild_lerren_pressed"]
+[connection signal="gui_input" from="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Leb-sterb-menu-auswahl" to="HBoxContainer/REchts-MarginContainer2/Rechte_seite" method="_on_lebsterbmenuauswahl_gui_input"]
+[connection signal="id_pressed" from="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Leb-sterb-menu-auswahl/Rule Mode" to="HBoxContainer/REchts-MarginContainer2/Rechte_seite" method="_on_rule_mode_id_pressed"]
+[connection signal="toggled" from="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Mode-Container/run or step-mode" to="." method="_on_run_or_stepmode_toggled"]
 [connection signal="pressed" from="Zurück-button" to="Zurück-button" method="_on_pressed"]
