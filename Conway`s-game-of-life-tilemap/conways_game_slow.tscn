@@ -78,6 +78,18 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
+layout_mode = 2
+
+[node name="Life Cell" type="Label" parent="HBoxContainer/Links-MarginContainer/Linke_seite/HBoxContainer2"]
+layout_mode = 2
+text = "Life Cells"
+
+[node name="zahl der lebenden cellen" type="Label" parent="HBoxContainer/Links-MarginContainer/Linke_seite/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+
 [node name="Start_Stop Button" type="Button" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -119,7 +131,7 @@ text = "Speed"
 layout_mode = 2
 size_flags_horizontal = 10
 tooltip_text = "Seconds per Life circle"
-placeholder_text = "ms (1000)"
+placeholder_text = "ms"
 
 [node name="Start-dichteContainer" type="HBoxContainer" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
 layout_mode = 2
@@ -369,7 +381,7 @@ script = ExtResource("19_aou51")
 [connection signal="pressed" from="HBoxContainer/Links-MarginContainer/Linke_seite/Start_Stop Button" to="." method="_on_start_stop_button_pressed"]
 [connection signal="text_submitted" from="HBoxContainer/Links-MarginContainer/Linke_seite/Pixel_Container/Pixel-anzahl-der-simulation" to="." method="_on_pixelanzahldersimulation_text_submitted"]
 [connection signal="text_submitted" from="HBoxContainer/Links-MarginContainer/Linke_seite/Speed_Container/speed_edit" to="." method="_on_simulation_speed_edit_text_submitted"]
-[connection signal="item_selected" from="HBoxContainer/Links-MarginContainer/Linke_seite/Start-dichteContainer/Startdichte in Prozent" to="." method="_on_startdichte_in_prozent_item_selected"]
+[connection signal="item_selected" from="HBoxContainer/Links-MarginContainer/Linke_seite/Start-dichteContainer/Startdichte in Prozent" to="." method="_on_start_dichte_in_prozent_item_selected"]
 [connection signal="pressed" from="HBoxContainer/Links-MarginContainer/Linke_seite/bild_lerren" to="." method="_on_bild_lerren_pressed"]
 [connection signal="gui_input" from="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Leb-sterb-menu-auswahl" to="HBoxContainer/REchts-MarginContainer2/Rechte_seite" method="_on_lebsterbmenuauswahl_gui_input"]
 [connection signal="id_pressed" from="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Leb-sterb-menu-auswahl/Rule Mode" to="HBoxContainer/REchts-MarginContainer2/Rechte_seite" method="_on_rule_mode_id_pressed"]
