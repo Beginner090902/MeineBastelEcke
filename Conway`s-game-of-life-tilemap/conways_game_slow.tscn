@@ -23,6 +23,7 @@
 [sub_resource type="GDScript" id="GDScript_aou51"]
 script/source = "extends VBoxContainer
 @onready var spiel_modus_index_1: VBoxContainer = $\"Spiel-Modus-index-1\"
+@onready var spiel_modus_index_0: VBoxContainer = $Spiel_Modus_index_0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,13 +42,20 @@ func _process(delta: float) -> void:
 
 func _on_rule_mode_id_pressed(id: int) -> void:
 	ConwaysGameSlow.Logging((\"Modus auswahl hat die id \"), id)
+	
 	if spiel_modus_index_1 == null:
 		ConwaysGameSlow.Logging(\"Modus index 1 ist null\", true)
 		return
+	if id == 0:
+		spiel_modus_index_0.show()
+	else:
+		spiel_modus_index_0.hide()
 	if id == 1:
 		spiel_modus_index_1.show()
 	else:
 		spiel_modus_index_1.hide()
+
+		
 "
 
 [node name="conways_game_slow" type="Control"]
@@ -216,6 +224,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Rule Mode" type="PopupMenu" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Leb-sterb-menu-auswahl"]
+oversampling_override = 1.0
 item_count = 2
 item_0/text = "4 Rules"
 item_0/id = 0
@@ -243,15 +252,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="+1" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Button-Container"]
+[node name="pluse_one_simulation_step" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Button-Container"]
 layout_mode = 2
 text = "+1"
 
-[node name="+2" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Button-Container"]
+[node name="pluse_tue_simulation_step" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Button-Container"]
 layout_mode = 2
 text = "+2"
 
-[node name="+3" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Button-Container"]
+[node name="pluse_three_simulation_step" type="Button" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Button-Container"]
 layout_mode = 2
 text = "+3"
 
@@ -369,6 +378,75 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 script = ExtResource("20_evrof")
 
+[node name="Spiel_Modus_index_0" type="VBoxContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite"]
+layout_mode = 2
+
+[node name="Live Cell Rules" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Live Cell Rules"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0"]
+layout_mode = 2
+
+[node name="Neighbours" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Any live cell with two or three live neighbours lives on to the next generation."
+mouse_filter = 0
+text = "Neighbours"
+
+[node name="Neighbours_input" type="LineEdit" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0"]
+layout_mode = 2
+
+[node name="Reproduction" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction."
+mouse_filter = 0
+text = "Reproduction"
+
+[node name="Reproduction_input" type="LineEdit" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Dead Cell Rules" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Dead Cell Rules"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0"]
+layout_mode = 2
+
+[node name="Overpopulation" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Any live cell with more than three live neighbours dies, as if by overpopulation."
+mouse_filter = 0
+text = "Overpopulation"
+
+[node name="Overpopulation_input" type="LineEdit" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0"]
+layout_mode = 2
+
+[node name="Underpopulation" type="Label" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Any live cell with fewer than two live neighbours dies, as if by underpopulation."
+mouse_filter = 0
+text = "Underpopulation"
+
+[node name="Underpopulation_input" type="LineEdit" parent="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Spiel_Modus_index_0/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+
 [node name="Zurück-button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 800.0
@@ -386,4 +464,7 @@ script = ExtResource("19_aou51")
 [connection signal="gui_input" from="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Leb-sterb-menu-auswahl" to="HBoxContainer/REchts-MarginContainer2/Rechte_seite" method="_on_lebsterbmenuauswahl_gui_input"]
 [connection signal="id_pressed" from="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Leb-sterb-menu-auswahl/Rule Mode" to="HBoxContainer/REchts-MarginContainer2/Rechte_seite" method="_on_rule_mode_id_pressed"]
 [connection signal="toggled" from="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Mode-Container/run or step-mode" to="." method="_on_run_or_stepmode_toggled"]
+[connection signal="pressed" from="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Button-Container/pluse_one_simulation_step" to="." method="_on_pluse_one_simulation_step_pressed"]
+[connection signal="pressed" from="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Button-Container/pluse_tue_simulation_step" to="." method="_on_pluse_tue_simulation_step_pressed"]
+[connection signal="pressed" from="HBoxContainer/REchts-MarginContainer2/Rechte_seite/Button-Container/pluse_three_simulation_step" to="." method="_on_pluse_three_simulation_step_pressed"]
 [connection signal="pressed" from="Zurück-button" to="Zurück-button" method="_on_pressed"]

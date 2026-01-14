@@ -1,9 +1,13 @@
 extends Node
 
 var Simulation_Status= false
-var Pixel : int
+var Pixel := 4
 var Breite : int
-var simulation_speed_in_seconds := 0
+var simulation_speed_in_seconds := 1.0
+var time_sins_last_frame = 0
+var Modus_auswahl_run_step := "run"
+var Simulation_steps = 0
+var manual_steps_prest = 0
 
 var life_buton_tl := 0
 var life_buton_t := 0

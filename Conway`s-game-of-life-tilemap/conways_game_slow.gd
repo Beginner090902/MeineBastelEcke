@@ -4,7 +4,7 @@ var Ready = false
 
 var img: Image
 var tex: ImageTexture
-var time_sins_last_frame = 0
+
 
 
 func Update_img():
@@ -17,63 +17,9 @@ func Logging(label: String, value) -> void:
 		# value wird automatisch in String umgewandelt
 		print("[LOG] %s: %s" % [label, str(value)])
 
-func Check_collor(color):
-	if color.r == 0 and color.g == 0 and color.b == 0:
-		return 0
-	if color.r == 1 and color.g == 1 and color.b == 1:
-		return 1
-		
-func Check_top(x, y):
-		if Check_collor(img.get_pixel(x ,y-1)) == 1:
-			return 1
-		else:
-			return 0
-			
-func Check_Top_Left(x,y):
-	if Check_collor(img.get_pixel(x-1,y-1)) == 1:
-		return 1
-	else:
-		return 0
-
-func Check_Top_Right(x, y):
-	if Check_collor(img.get_pixel(x+1,y-1)) == 1:
-		return 1
-	else:
-		return 0
-
-func Check_Left(x,y):
-	if Check_collor(img.get_pixel(x-1,y)) == 1:
-		return 1
-	else:
-		return 0
-	
-func Check_right(x, y):
-	if Check_collor(img.get_pixel(x+1,y)) == 1:
-		return 1
-	else:
-		return 0
-		
-func Check_Bottum_Left(x,y):
-	if Check_collor(img.get_pixel(x-1,y+1)) == 1:
-		return 1
-	else:
-		return 0
-
-func Check_Bottum(x,y):
-	if Check_collor(img.get_pixel(x,y+1)) == 1:
-		return 1
-	else:
-		return 0
-		
-func Check_Bottum_Right(x,y):
-	if Check_collor(img.get_pixel(x+1,y+1)) == 1:
-		return 1
-	else:
-		return 0
-
-
 func _ready():
 	Ready = true
+	Resize_img()
 
 		
 func Resize_img() -> void:
@@ -102,8 +48,6 @@ func display_new_img(img:Image):
 	#Logging("rect ist gültig", true)
 	tex = ImageTexture.create_from_image(img)
 	rect.texture = tex
-func _process(delta: float) -> void:
-	pass
 
 
 
@@ -137,7 +81,11 @@ func _on_bild_lerren_pressed() -> void:
 
 
 func _on_run_or_stepmode_toggled(toggled_on: bool) -> void:
-	Logging("Step oder Run Modus", toggled_on)
+	if CONWAYSVARIABEL.Modus_auswahl_run_step == "run":
+		CONWAYSVARIABEL.Modus_auswahl_run_step = "step"
+	else:
+		CONWAYSVARIABEL.Modus_auswahl_run_step = "run"
+	Logging("Step oder Run Modus", CONWAYSVARIABEL.Modus_auswahl_run_step)
 
 @onready var zahl_der_lebenden_cellen: Label = $"HBoxContainer/Links-MarginContainer/Linke_seite/HBoxContainer2/zahl der lebenden cellen"
 func _on_start_dichte_in_prozent_item_selected(index: int) -> void:
@@ -188,8 +136,34 @@ func _on_start_dichte_in_prozent_item_selected(index: int) -> void:
 		zahl_der_lebenden_cellen.set_text(str(i))
 		pixel_schon_vorhanden  = false
 		
+func Simulation_step():
+	CONWAYSVARIABEL.Simulation_steps = CONWAYSVARIABEL.Simulation_steps + 1
+	Logging("Simulation Step Count", CONWAYSVARIABEL.Simulation_steps)
 	
+func _process(delta: float) -> void:
+	CONWAYSVARIABEL.time_sins_last_frame = CONWAYSVARIABEL.time_sins_last_frame + delta
+	if CONWAYSVARIABEL.Simulation_Status == false:
+		return
 		
-		
-	
-	
+	if CONWAYSVARIABEL.Modus_auswahl_run_step == "run":
+		if CONWAYSVARIABEL.time_sins_last_frame >= CONWAYSVARIABEL.simulation_speed_in_seconds:
+			CONWAYSVARIABEL.time_sins_last_frame = 0.0
+			Simulation_step()
+			
+	if CONWAYSVARIABEL.Modus_auswahl_run_step == "step":
+		if CONWAYSVARIABEL.manual_steps_prest > 0 :
+			var i = 0
+			while i < CONWAYSVARIABEL.manual_steps_prest:
+				i = i + 1
+				Simulation_step()
+			i =  0 
+			CONWAYSVARIABEL.manual_steps_prest = 0
+
+func _on_pluse_one_simulation_step_pressed() -> void:
+	CONWAYSVARIABEL.manual_steps_prest = 1
+
+func _on_pluse_tue_simulation_step_pressed() -> void:
+	CONWAYSVARIABEL.manual_steps_prest = 2
+
+func _on_pluse_three_simulation_step_pressed() -> void:
+	CONWAYSVARIABEL.manual_steps_prest = 3
