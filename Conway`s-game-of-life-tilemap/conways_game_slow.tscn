@@ -188,11 +188,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Grid layout"
 selected = 0
-item_count = 2
-popup/item_0/text = "Leer"
+item_count = 1
+popup/item_0/text = "Random"
 popup/item_0/id = 0
-popup/item_1/text = "Voll Weiß"
-popup/item_1/id = 1
 
 [node name="bild_lerren" type="Button" parent="HBoxContainer/Links-MarginContainer/Linke_seite"]
 layout_mode = 2

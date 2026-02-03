@@ -78,6 +78,9 @@ func _on_pixelanzahldersimulation_text_submitted(new_text: String) -> void:
 
 func _on_bild_lerren_pressed() -> void:
 	Logging("Bild lerren gedrückt ", true)
+	img.fill(Color.BLACK)
+	display_new_img(img)
+	
 
 
 func _on_run_or_stepmode_toggled(toggled_on: bool) -> void:
