@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://deqrrunua1u0k"]
+
+[ext_resource type="Script" uid="uid://d3da7ni2h2f8d" path="res://Sort Bars/SortVisualizer.gd" id="1_uinah"]
+
+[node name="SortVisualizer" type="Node2D" unique_id=610419847]
+script = ExtResource("1_uinah")
+
+[node name="Bars" type="Node2D" parent="." unique_id=354706368]
+position = Vector2(89, 78)
